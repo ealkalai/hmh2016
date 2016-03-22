@@ -31,7 +31,7 @@ def logged_in():
 
 @application.route("/response", methods=['GET'])
 def get_response():
-    if random.randint(0,1000) < 10:
+    if random.randint(0,500) < 10:
         return '{"url": "http://google.com"}'
     else:
         return 'not yet'
