@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Contract</title>
+</head>
+<body>
+    <form action="/update_contract" method="post">
+        {% if domain is defined %}
+
+            {{ name }} <br>
+            {{ email }} <br>
+            {{ price }} <br>
+
+        {% else %}
+        Domain: <br>
+        <input type="text" name="domain"> <br>
+        Name: <br>
+        <input type="text" name="name"> <br>
+        E-mail: <br>
+        <input type="text" name="email"> <br>
+        Price: <br>
+        <input type="number" name="price"> <br>
+
+        <input type="submit" value="Submit">
+
+        {% endif %}
+    </form>
+</body>
+</html>
