@@ -17,7 +17,6 @@
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
         <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
@@ -25,19 +24,6 @@
         <style type="text/css">
             .modal-footer {   border-top: 0px; }
         </style>
-
-        <script>
-        $(document).ready(function () {
-            (function poll(){
-                $.ajax({ url: "/response", success: function(response){
-                    window.location.replace("/loggedin");
-                }, dataType: "json", complete: poll, timeout: 30000 });
-            })();
-        });
-
-
-        </script>
-
     </head>
     <!-- HTML code from Bootply.com editor -->
     <body>
@@ -51,17 +37,14 @@
                         <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">Mijn ING</h1>
                     </div>
                     <div class="modal-body">
-                        <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
+                        <form id="login" action="/qrcode" name="login" method="post" class="form col-md-12 center-block">
                             <input type="hidden" name="client_id" value="1"/>
 				            <input type="hidden" name="redirect_uri" value="{{ callback }}"/>
 				            <input type="hidden" name="scope" value=""/>
 				            <input type="hidden" name="state" value="NL"/>
 				            <input type="hidden" name="response_type" value="token"/>
 
-
-                            <img src="{{ qrcode(d) }}">
-                            {{ d }}
-
+                            You have logged in with uuid: {{uuid}}
 
                         </form>
                     </div>
