@@ -1,13 +1,19 @@
+{% macro input(name,placeholder,required="",autofocus="") -%}
+    <div class="form-group">
+        <input type="text" autocomplete="off" class="form-control input-lg" {{required}} {{autofocus}} style="border-radius:0px" name="{{name}}" id="{{name}}" placeholder="{{placeholder}}">
+    </div>
+{%- endmacro %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <title>Welcome to ING Login</title>
+        <title>Welcome to ING @ Delftse Bedrijvendagen</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="Example snippet for a Bootstrap login form modal" />
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/bootstrap.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -26,30 +32,23 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-
+                        <img src="static/imgs/ING_logo_lion.png" alt="ING Lion" style="float:left; width:119px;height:91px; margin:0px;padding: 0px;">
                         <br>
-                        <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">Domain Name Price</h1>
+                        <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">Mijn ING</h1>
                     </div>
                     <div class="modal-body">
-                        <div class="alert alert-info" style=" font-size:150%; width:535px; margin:auto; margin-bottom:15px;"> Dear domain holder please enter the desired price for the domain stated below</div>
-                        <form action="/login" method="post" class="form col-md-12 center-block">
-                            <div class="form-group">
-                                <input type="text" class="form-control input-lg"  name="domain" value="selectedDomain.com" readonly onfocus="this.form.fld3.focus()">
-                            </div>
+                        <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
+                            <input type="hidden" name="client_id" value="1"/>
+				            <input type="hidden" name="redirect_uri" value="{{ callback }}"/>
+				            <input type="hidden" name="scope" value=""/>
+				            <input type="hidden" name="state" value="NL"/>
+				            <input type="hidden" name="response_type" value="token"/>
 
-                            <div class="form-group">
-                                <input type="text" class="form-control input-lg"  name="price" placeholder="Please enter domain price">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control input-lg" name="iban" value="NL123 456 789" readonly onfocus="this.form.fld3.focus()">
-                            </div>
 
-                            <div class="form-group">
-                                <button name="submit" value="Submit" class="btn btn-primary btn-lg btn-block"   style="width:90px;height:43px;background-color:#ff6600;border: #ff6600" >Submit</button>
+                            <img src="{{ qrcode("Do you speak QR?") }}">
 
-                            </div>
+
                         </form>
-
                     </div>
                     <div class="modal-footer">
                         <div class="col-md-12">
