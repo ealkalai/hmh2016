@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, send_file
 from flask.ext.qrcode import QRcode
+import json
 
 import cStringIO, qrcode
 
@@ -14,8 +15,13 @@ def login():
 
 @application.route("/qrcode", methods=['GET', 'POST'])
 def thanks():
-    img = "http://www.ing.com"
-    return render_template('data.html',img=img)
+
+    text = '{"url": "www.google.com","date": null,"uuid": 123}'
+    #d = json.loads(text)
+    d = text
+
+    #img = "http://www.ing.com"
+    return render_template('data.html',d=d)
 
 @application.route("/response", methods=['POST'])
 def post_response():
