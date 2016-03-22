@@ -36,12 +36,6 @@ def post_response():
 
 @application.route("/response", methods=['GET'])
 def get_response():
-    #verify device/pin
-    #do callback
-    return True
-
-@application.route("/response", methods=['GET'])
-def get_response():
     if random.randint(0,100) < 10:
         return '{"url": "http://google.com"}'
 
