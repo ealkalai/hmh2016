@@ -17,12 +17,6 @@
 {% block title %}QR Code (for now){% endblock %}
 {% block content %}
 <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
-    <input type="hidden" name="client_id" value="1"/>
-    <input type="hidden" name="redirect_uri" value="{{ callback }}"/>
-    <input type="hidden" name="scope" value=""/>
-    <input type="hidden" name="state" value="NL"/>
-    <input type="hidden" name="response_type" value="token"/>
-
     <h4 style="color:grey;">Please use your mobile device to read QRCode given below.</h4>
     <img src="{{ qrcode(d) }}">
     {{ d }}
