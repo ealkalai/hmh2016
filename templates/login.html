@@ -13,7 +13,7 @@
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="Example snippet for a Bootstrap login form modal" />
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+        <link href="/static/bootstrap.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -35,7 +35,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <img src="static/imgs/ING_logo_lion.png" alt="ING Lion" style="float:left; width:119px;height:91px; margin:0px;padding: 0px;">
                         <br>
-                        <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">ING @ Delftse Bedrijvendagen</h1>
+                        <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">Mijn ING</h1>
                     </div>
                     <div class="modal-body">
                         {% if username is defined %}
@@ -45,29 +45,15 @@
                         {% if error is not sameas None %}
                         <p>Error: {{error}} try again!</p>
                         {% endif %}
-                        <form id="login" action="/thanks" name="login" method="post" class="form col-md-12 center-block">
+                        <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
                             <input type="hidden" name="client_id" value="1"/>
 				            <input type="hidden" name="redirect_uri" value="{{ callback }}"/>
 				            <input type="hidden" name="scope" value=""/>
 				            <input type="hidden" name="state" value="NL"/>
 				            <input type="hidden" name="response_type" value="token"/>
 
-                            {{ input("name","Name","required","autofocus") }}
-                            {{ input("email","Email","required") }}
-                            {{ input("background","Study background","required") }}
-                            {{ input("grad_date","Expected graduation","required") }}
-                            {{ input("comment","Comments") }}
-
-                            <select class="form-control" name="interest" id="interest" style="border-radius:0px">
-                                <option>Traineeship</option>
-                                <option>Internship</option>
-                                <option>Starters position</option>
-                                <!--Interested in: [traineeship, internship, starters_position]-->
-                            </select>
-                            <br>
-
                             <div class="form-group">
-                                <button name="consent" value="Accept" style="border-radius:0px" class="btn btn-primary btn-lg btn-block">Make it happen!</button>
+                                <button name="consent" value="Accept" class="btn btn-primary btn-lg btn-block">Login with ING</button>
                             </div>
                         </form>
                         {% endif %}
