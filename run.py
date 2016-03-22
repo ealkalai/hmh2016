@@ -30,8 +30,10 @@ def logged_in():
 
 @application.route("/response", methods=['GET'])
 def get_response():
-    if random.randint(0,100) < 10:
+    if random.randint(0,1000) < 10:
         return '{"url": "http://google.com"}'
+    else:
+        return 'not yet'
 
 @application.route("/callback", methods=['GET'])
 def handle_callback():

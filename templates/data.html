@@ -5,7 +5,9 @@
             (function poll(){
                 $.ajax({ url: "/response", success: function(response){
                     window.location.replace("/loggedin");
-                }, dataType: "json", complete: poll, timeout: 30000 });
+                }, error: function(){
+                    console.log("Errortime");
+                }, dataType: "json", complete: poll, async:true,timeout: 30000 });
             })();
         });
 
