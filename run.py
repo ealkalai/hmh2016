@@ -28,12 +28,6 @@ def qr_page():
 def logged_in():
     return render_template('logged_in.html')
 
-@application.route("/response", methods=['POST'])
-def post_response():
-    response = ing_create_challenge()
-    data = response.get_data()
-    return render_template('data.html', d=data)
-
 @application.route("/response", methods=['GET'])
 def get_response():
     if random.randint(0,100) < 10:
