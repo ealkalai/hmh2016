@@ -5,9 +5,12 @@ import random
 
 import cStringIO, qrcode
 import pprint
+import uuid
 
 application = Flask(__name__)
 QRcode(application)
+
+pending_stuff = dict()
 
 #from app.models import User
 
@@ -31,13 +34,15 @@ def logged_in():
 
 @application.route("/response", methods=['GET'])
 def get_response():
-    if random.randint(0,500) < 10:
+    if "123" in pending_stuff:
         return '{"url": "http://google.com"}'
     else:
         return 'not yet'
 
 @application.route("/callback", methods=['GET'])
-def handle_callback():
+def handle_callback(data):
+    pprint.pprint(pending_stuff)
+    pending_stuff[data['uuid']] = data
     return Response(status=200)
 
 
@@ -49,11 +54,13 @@ def post_response():
     #verify device/pin
     data = request.get_json()
     pprint.pprint(data)
-    handle_callback()
+    handle_callback(data)
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
 def ing_create_challenge():
-    data = {"url" : "http://google.com", "date" : 2016, "uuid" : 123}
+    random_something = "123"
+    #random_something = str(uuid.uuid4())
+    data = {"url" : "http://google.com", "date" : 2016, "uuid" : random_something}
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
 if __name__ == "__main__":
