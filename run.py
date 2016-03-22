@@ -22,7 +22,8 @@ def login():
 @application.route("/qrcode", methods=['GET', 'POST'])
 def qr_page():
     data = ing_create_challenge()
-    return render_template('data.html',d=data)
+    d = data.get_data()
+    return render_template('data.html',d=d)
 
 @application.route("/loggedin", methods=['GET', 'POST'])
 def logged_in():
