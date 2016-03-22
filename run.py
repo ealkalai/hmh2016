@@ -10,6 +10,10 @@ QRcode(application)
 
 #from app.models import User
 
+# Website/Service Backend entry points
+#======================================
+
+
 @application.route("/", methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
@@ -29,6 +33,10 @@ def get_response():
 @application.route("/callback", methods=['GET'])
 def handle_callback():
     return Response(status=200)
+
+
+# ING Backend entry points
+#=========================
 
 @application.route("/response", methods=['POST'])
 def post_response():
