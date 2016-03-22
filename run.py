@@ -1,34 +1,21 @@
 from flask import Flask, request, render_template, redirect, url_for, send_file
+from flask.ext.qrcode import QRcode
 
 import cStringIO, qrcode
 
 application = Flask(__name__)
+QRcode(application)
 
 #from app.models import User
-
-def random_qr(url='www.google.com'):
-    qr = qrcode.QRCode(version=1,
-                       error_correction=qrcode.constants.ERROR_CORRECT_L,
-                       box_size=10,
-                       border=4)
-
-    qr.add_data(url)
-    qr.make(fit=True)
-    img = qr.make_image()
-    return img
 
 @application.route("/", methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
 
-@application.route("/challenge", methods=['GET', 'POST'])
+@application.route("/qrcode", methods=['GET', 'POST'])
 def thanks():
-    img_buf = cStringIO.StringIO()
-    img = random_qr(url='www.python.org')
-    img.save(img_buf)
-    img_buf.seek(0)
-    return send_file(img_buf, mimetype='image/png')
-    #return render_template('data.html')
+    img = "http://www.ing.com"
+    return render_template('data.html',img=img)
 
 @application.route("/response", methods=['POST'])
 def post_response():
