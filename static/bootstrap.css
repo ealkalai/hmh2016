@@ -4,9 +4,50 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+@font-face {
+	font-family: 'INGMe';
+	src: url('fonts/Regular/INGMeWeb-Regular.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/Regular/INGMeWeb-Regular.woff') format('woff'),
+	     url('fonts/Regular/INGMeWeb-Regular.woff2') format('woff2'),
+	     url('fonts/Regular/INGMeWeb-Regular.ttf')  format('truetype'),
+	     url('fonts/Regular/INGMeWeb-Regular.svg#svgFontName') format('svg');
+	}
+
+@font-face {
+	font-family: 'INGMe';
+	font-weight: bold;
+	src: url('fonts/Bold/INGMeWeb-Bold.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/Bold/INGMeWeb-Bold.woff') format('woff'),
+	     url('fonts/Bold/INGMeWeb-Bold.woff2') format('woff2'),
+	     url('fonts/Bold/INGMeWeb-Bold.ttf')  format('truetype'),
+	     url('fonts/Bold/INGMeWeb-Bold.svg#svgFontName') format('svg');
+	}
+
+@font-face {
+	font-family: 'INGMe';
+	font-style: italic;
+	src: url('fonts/Italic/INGMeWeb-Italic.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/Italic/INGMeWeb-Italic.woff') format('woff'),
+	     url('fonts/Italic/INGMeWeb-Italic.woff2') format('woff2'),
+	     url('fonts/Italic/INGMeWeb-Italic.ttf')  format('truetype'),
+	     url('fonts/Italic/INGMeWeb-Italic.svg#svgFontName') format('svg');
+	}
+
+@font-face {
+	font-family: 'INGMe';
+	font-weight: bold;
+	font-style: italic;
+	src: url('fonts/BoldItalic/INGMeWeb-BoldItalic.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/BoldItalic/INGMeWeb-BoldItalic.woff') format('woff'),
+	     url('fonts/BoldItalic/INGMeWeb-BoldItalic.woff2') format('woff2'),
+	     url('fonts/BoldItalic/INGMeWeb-BoldItalic.ttf')  format('truetype'),
+	     url('fonts/BoldItalic/INGMeWeb-BoldItalic.svg#svgFontName') format('svg');
+	}
+
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  font-family: INGMe;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -1086,7 +1127,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: INGMe;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
