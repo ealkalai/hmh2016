@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, send_file
 from flask.ext.qrcode import QRcode
+import json
 
 import cStringIO, qrcode
 import json
@@ -16,7 +17,7 @@ def login():
 @application.route("/qrcode", methods=['GET', 'POST'])
 def thanks():
     data = ing_create_challenge()
-    return render_template('data.html',img=data)
+    return render_template('data.html',d=data)
 
 @application.route("/response", methods=['POST'])
 def post_response():
@@ -25,7 +26,7 @@ def post_response():
     return 200
 
 def ing_create_challenge():
-    return {url: "http://google.com", date: 2016, uuid: 123}
+    return '{url: "http://google.com", date: 2016, uuid: 123}'
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)
