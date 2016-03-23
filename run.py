@@ -19,7 +19,7 @@ pending_stuff = dict()
 #======================================
 
 
-@application.route("/", methods=['GET', 'POST'])
+@application.route("/", methods=['GET'])
 def login():
     return render_template('login.html')
 
