@@ -3,7 +3,6 @@ from flask.ext.qrcode import QRcode
 import json
 import random
 
-import cStringIO, qrcode
 import pprint
 import uuid
 from datetime import datetime
@@ -12,8 +11,6 @@ application = Flask(__name__)
 QRcode(application)
 
 pending_stuff = dict()
-
-#from app.models import User
 
 # Website/Service Backend entry points
 #======================================
@@ -27,7 +24,6 @@ def login():
 def qr_page():
     text = '{"text": "Login to Mijn ING","extra_parameters": {}}'
     data = ing_create_challenge(json.loads(text))
-    #data = ing_create_challenge({"text":"Sign in at website","extra_vars":{}})
     d = json.loads(data.get_data())
     return render_template('data.html',d=d,uuid=d['uuid'])
 
@@ -45,7 +41,6 @@ def get_response():
 
 @application.route("/callback", methods=['GET'])
 def handle_callback(data):
-    pprint.pprint(pending_stuff)
     pending_stuff[data['uuid']] = data
     return Response(status=200)
 
@@ -61,12 +56,10 @@ def post_response():
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
 def ing_create_challenge(data_in):
-    pprint.pprint(data_in)
     date = str(datetime.now())
     #random_something = str(uuid.uuid4())
     random_something = str(random.randint(0,100))
     data_out = {"text" : data_in['text'], "date" : date, "uuid" : random_something, "extra_parameters" : data_in['extra_parameters']}
-    pprint.pprint(data_out)
     return Response(json.dumps(data_out), status=200, mimetype='application/json')
 
 if __name__ == "__main__":
