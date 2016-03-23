@@ -4,7 +4,7 @@
         $(document).ready(function () {
             (function poll(){
                 $.ajax({ url: "/response?uuid={{uuid}}", success: function(response){
-                    window.location.replace("/loggedin");
+                    window.location.replace("/loggedin?uuid={{uuid}}");
                 }, error: function(){
                     console.log("Errortime");
                 }, dataType: "json", complete: poll, async:true,timeout: 30000 });

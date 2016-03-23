@@ -29,7 +29,9 @@ def qr_page():
 
 @application.route("/loggedin", methods=['GET', 'POST'])
 def logged_in():
-    return render_template('logged_in.html')
+    rv = request.args.get('uuid')
+    name = pending_stuff[rv]['user']
+    return render_template('logged_in.html',name=name)
 
 @application.route("/response", methods=['GET'])
 def get_response():
