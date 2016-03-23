@@ -3,7 +3,7 @@
         <script>
         $(document).ready(function () {
             (function poll(){
-                $.ajax({ url: "/response", success: function(response){
+                $.ajax({ url: "/response?uuid={{uuid}}", success: function(response){
                     window.location.replace("/loggedin");
                 }, error: function(){
                     console.log("Errortime");
