@@ -18,13 +18,14 @@ pending_stuff = dict()
 #======================================
 
 
-@application.route("/", methods=['GET', 'POST'])
+@application.route("/", methods=['GET'])
 def login():
     return render_template('login.html')
 
-@application.route("/qrcode", methods=['GET', 'POST'])
+@application.route("/qrcode", methods=['GET'])
 def qr_page():
-    data = ing_create_challenge()
+    text = '{"text": "Login to Mijn ING","extra_parameters": {}}'
+    data = ing_create_challenge(json.loads(text))
     d = data.get_data()
     return render_template('data.html',d=d)
 
