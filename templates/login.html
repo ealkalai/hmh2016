@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}Mijn ING{% endblock %}
 {% block content %}
-                        <form id="login" action="/qrcode" name="login" method="post" class="form col-md-12 center-block">
+                        <form id="qrcode" action="/qrcode" name="login" method="post" class="form col-md-12 center-block">
                             <div class="form-group">
                                 <button name="consent" value="Accept" class="btn btn-primary btn-lg btn-block">Login with ING</button>
+                            </div>
+                        </form>
+
+                        <form id="atm" action="/atm" name="login" method="post" class="form col-md-12 center-block">
+                            <div class="form-group">
+                                <button name="consent" value="Accept" class="btn btn-primary btn-lg btn-block">Withdraw money from ATM</button>
                             </div>
                         </form>
 {% endblock %}

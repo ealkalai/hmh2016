@@ -22,11 +22,23 @@ def login():
 
 @application.route("/qrcode", methods=['GET', 'POST'])
 def qr_page():
-    text = '{"text": "Login to Mijn ING","extra_parameters": {}}'
-    data = ing_create_challenge(json.loads(text))
+    text = '{"text": "Login to Mijn ING", "something_generic" : ""}'
+    data = ing_create_challenge(json.loads(text), "web")
     d = data.get_data()
     temp = json.loads(data.get_data())
-    return render_template('data.html',d=d,uuid=temp['uuid'])
+    return render_template('data.html',d=d,uuid=temp['uuid'])\
+
+@application.route("/atm", methods=['GET', 'POST'])
+def atm_page():
+    textTwenty = '{"text": "ING ATM", "something_generic" : "20"}'
+    textFifty = '{"text": "ING ATM", "something_generic" : "50"}'
+    dataTwenty = ing_create_challenge(json.loads(textTwenty), "atm")
+    dataFifty = ing_create_challenge(json.loads(textFifty), "atm")
+    tempTwenty = json.loads(dataTwenty.get_data())
+    tempFifty = json.loads(dataFifty.get_data())
+    dTwenty = dataTwenty.get_data()
+    dFifty = dataFifty.get_data()
+    return render_template('atm.html',dTwenty=dTwenty,dFifty=dFifty,uuidTwenty=tempTwenty['uuid'],uuidFifty=tempFifty['uuid'])
 
 @application.route("/loggedin", methods=['GET', 'POST'])
 def logged_in():
@@ -59,11 +71,10 @@ def post_response():
     handle_callback(data)
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
-def ing_create_challenge(data_in):
+def ing_create_challenge(data_in, service):
     date = str(datetime.now())
-    #random_something = str(uuid.uuid4())
-    random_something = str(random.randint(0,100))
-    data_out = {"text" : data_in['text'], "date" : date, "uuid" : random_something, "extra_parameters" : data_in['extra_parameters']}
+    random_something = str(uuid.uuid4())
+    data_out = {"text" : data_in['text'], "date" : date, "uuid" : random_something, "service_id": service, "something_generic" : data_in['something_generic']}
     return Response(json.dumps(data_out), status=200, mimetype='application/json')
 
 if __name__ == "__main__":

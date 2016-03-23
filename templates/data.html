@@ -18,7 +18,6 @@
 {% block content %}
 <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
     <h4 style="color:grey;">Please use your mobile device to read QRCode given below.</h4>
-    <img src="{{ qrcode(d) }}">
-    {{ d }}
+    <img src="{{ qrcode(d) }}" style="display: block; margin: 0 auto;"> <br /> <br />
 </form>
 {% endblock %}
