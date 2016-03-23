@@ -45,7 +45,14 @@ def logged_in():
     rv = request.args.get('uuid')
     name = pending_stuff[rv]['user']
     device = pending_stuff[rv]['device']
-    return render_template('logged_in.html',name=name)
+    return render_template('logged_in.html',name=name, device=device)
+
+@application.route("/moneywithdrawn", methods=['GET', 'POST'])
+def money_withdrawn():
+    rv = request.args.get('uuid')
+    name = pending_stuff[rv]['user']
+    amount = pending_stuff[rv]['something_generic']
+    return render_template('moneywithdrawn.html',name=name, amount=amount)
 
 @application.route("/response", methods=['GET'])
 def get_response():
