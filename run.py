@@ -24,8 +24,9 @@ def login():
 def qr_page():
     text = '{"text": "Login to Mijn ING","extra_parameters": {}}'
     data = ing_create_challenge(json.loads(text))
-    d = json.loads(data.get_data())
-    return render_template('data.html',d=d,uuid=d['uuid'])
+    d = data.get_data()
+    temp = json.loads(data.get_data())
+    return render_template('data.html',d=d,uuid=temp['uuid'])
 
 @application.route("/loggedin", methods=['GET', 'POST'])
 def logged_in():
