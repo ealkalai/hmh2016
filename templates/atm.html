@@ -24,8 +24,16 @@
 {% block title %} ING ATM {% endblock %}
 {% block content %}
 <form id="login" action="/challenge" name="login" method="post" class="form col-md-12 center-block">
-    <h4 style="color:grey;">Please use your mobile device to read one of the QRCodes given below.</h4>
-    <img src="{{ qrcode(dTwenty) }}" style="margin-right: 150px">
-    <img src="{{ qrcode(dFifty) }}">
+    <h4 style="color:grey;">Please use your mobile device to read one of the QRCodes given below.</h4></br>
+    <table style="width:100%;">
+        <tr>
+            <td style="text-align: center;"> <img src="{{ qrcode(dTwenty) }}"> </td>
+            <td style="text-align: center;"> <img src="{{ qrcode(dFifty) }}"> </td>
+        </tr>
+        <tr style="color:grey; font-size: 40px;">
+            <td style="text-align: center;"></br> 20 &#8364;</td>
+            <td style="text-align: center;"></br> 50 &#8364;</td>
+        </tr>
+    </table>
 </form>
 {% endblock %}

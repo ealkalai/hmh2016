@@ -32,11 +32,12 @@
         <!--login modal-->
         <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" style="width:65%; margin:auto;">
                     <div class="modal-header">
-                        <img src="static/imgs/ING_logo_lion.png" alt="ING Lion" style="float:left; width:119px;height:91px; margin:0px;padding: 0px;">
+                        <img src="static/imgs/ING_logo_lion.png" alt="ING Lion" style="float:left; width:119px;height:91px; margin:0px; padding:0px;">
                         <br>
-                        <h1 class="text-center " style=" font-size:300%  margin:2px 5px 5px 1px; ">{% block title %}{% endblock %}</h1>
+                        <h1 class="text-center" style="font-size:300%; margin:2px 5px 5px 1px;">{% block title %}{% endblock %}</h1>
+                    </br>
                     </div>
                     <div class="modal-body">
                         {% block content %}{% endblock %}
