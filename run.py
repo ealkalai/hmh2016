@@ -31,6 +31,7 @@ def qr_page():
 def logged_in():
     rv = request.args.get('uuid')
     name = pending_stuff[rv]['user']
+    device = pending_stuff[rv]['device']
     return render_template('logged_in.html',name=name)
 
 @application.route("/response", methods=['GET'])
