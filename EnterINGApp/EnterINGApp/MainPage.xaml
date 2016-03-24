@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="EnterINGApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EnterINGApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <Grid Background="#FFFF6200" BorderBrush="#FFFF6200">
+        <Grid Margin="10" Background="White" d:LayoutOverrides="TopPosition, BottomPosition">
+            <PasswordBox x:Name="textBoxPin" Margin="10,98,10,0" BorderBrush="#FFFF6200" Foreground="#FFFF6200" VerticalAlignment="Top" SelectionHighlightColor="#FF525199" Password="" FontSize="48" PlaceholderText="pin">
+                <PasswordBox.InputScope>
+                    <InputScope>
+                        <InputScope.Names>
+                            <InputScopeName NameValue="NumericPin"/>
+                        </InputScope.Names>
+                    </InputScope>
+                </PasswordBox.InputScope>
+            </PasswordBox>
+            <TextBox x:Name="textBoxSessionId" Margin="10,303,10,0" TextWrapping="Wrap" Text="123" VerticalAlignment="Top" Foreground="#FFFF6200" BorderBrush="#FFFF6200" SelectionHighlightColor="#FF525199" Visibility="Collapsed"/>
+            <Button x:Name="buttonSubmit" Content="allow" HorizontalAlignment="Stretch" Margin="10,179,10,0" VerticalAlignment="Top" Click="buttonSubmit_Click" Foreground="White" Background="#FFFF6200" Width="320" FontSize="48"/>
+
+
+
+
+            <CaptureElement x:Name="capturePreview" Margin="10" Stretch="UniformToFill" Tapped="capturePreview_Tapped" />
+            <Image x:Name="Assets_ING_logo_lion_res2_png" Margin="205,-20,-16,0" Source="Assets/ING_logo-lion_res2.png" Stretch="Fill" VerticalAlignment="Top" Height="113" HorizontalAlignment="Left" Width="151" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="enterING" Foreground="#FFFF6200" VerticalAlignment="Top" FontSize="40" />
+            <StackPanel Margin="10,260,10,10" Orientation="Vertical">
+                <Grid>
+                    <Button x:Name="buttonExpand" Content="v" HorizontalAlignment="Right"  VerticalAlignment="Top" Foreground="White" Background="#FFFF6200" FontSize="14.667" Height="32" Click="buttonExpand_Click" />
+                    <TextBlock x:Name="textBlockSessionInfo" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Foreground="#FFFF6200" FontSize="21.333"/>
+                </Grid>
+                <Grid x:Name="gridExtraInfo" Visibility="Collapsed">
+                    <TextBlock x:Name="textBlockSessionInfoExtra" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Foreground="#FFFF6200" FontSize="21.333"/>
+                    <Button x:Name="buttonVerifySession" Content="@" HorizontalAlignment="Right"  VerticalAlignment="Top" Foreground="White" Background="#FFFF6200" FontSize="14.667" Height="33" Click="buttonVerifySession_Click" Margin="0,259,7,-259"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Page>

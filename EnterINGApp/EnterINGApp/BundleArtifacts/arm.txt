@@ -1,0 +1,2 @@
+MainPackage=C:\Users\user\documents\visual studio 2015\Projects\EnterINGApp\EnterINGApp\bin\ARM\Debug\EnterINGApp_1.0.48.0_ARM_Debug.appx
+SymbolPackage=C:\Users\user\documents\visual studio 2015\Projects\EnterINGApp\EnterINGApp\AppPackages\EnterINGApp_1.0.48.0_Debug_Test\EnterINGApp_1.0.48.0_ARM_Debug.appxsym
